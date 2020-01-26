@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+  <%= csrf_meta_tags %>
+  <title>Marital an Wedding Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+</head>
+<body>
+<%= render partial: 'shared/html_template_scripts/scripts' %>
+<%= render partial: 'shared/header' %>
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, class: "btn_1 submit" %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn_1 submit" %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, class: "btn_1 submit" %>
+  <%= link_to "Login", new_user_session_path, class: "btn_1 submit" %>
+<% end %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+<%= render partial: 'shared/map' %>
+<%= render partial: 'shared/footer' %>
+</body>
+</html>
